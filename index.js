@@ -122,7 +122,7 @@ const runAction = () => {
 	for (let i = 0; i < maxAttempts; i += 1) {
 		try {
 			run(
-				`yarn run ${cmd} --${platform} --publish always" ${args}`,
+				`yarn run ${cmd} -ml --publish always`,
 				appRoot,
 			);
 			break;
