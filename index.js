@@ -82,8 +82,8 @@ const runAction = () => {
 	}
 
 	// Copy "github_token" input variable to "GH_TOKEN" env variable (required by `electron-builder`)
-	setEnv("GH_TOKEN", getInput("github_token", true));
-	setEnv("NODE_ENV", getInput("node_env", "production"));
+	setEnv("GH_TOKEN", getInput("gh_token", true));
+	setEnv("NODE_ENV", getInput("node_env", true));
 	// Require code signing certificate and password if building for macOS. Export them to environment
 	// variables (required by `electron-builder`)
 	if (platform === "mac") {

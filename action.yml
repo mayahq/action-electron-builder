@@ -38,6 +38,9 @@ inputs:
     description: Node environment to use for building
     default: "production"
     required: true
+  gh_token:
+    description: Custom github token for creating and deploying releases
+    required: false
   args:
     description: Other arguments to pass to the `electron-builder` command, e.g. configuration overrides
     required: false
