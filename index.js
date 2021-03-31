@@ -83,7 +83,6 @@ const runAction = () => {
 
 	// Copy "github_token" input variable to "GH_TOKEN" env variable (required by `electron-builder`)
 	setEnv("GH_TOKEN", getInput("github_token", true));
-
 	// Require code signing certificate and password if building for macOS. Export them to environment
 	// variables (required by `electron-builder`)
 	if (platform === "mac") {
@@ -97,32 +96,12 @@ const runAction = () => {
 	// Disable console advertisements during install phase
 	setEnv("ADBLOCK", true);
 
-	// log(`Installing dependencies using ${useNpm ? "NPM" : "Yarn"}…`);
-	// run(useNpm ? "npm install" : "yarn", pkgRoot);
-
-	// // Run NPM build script if it exists
-	// if (skipBuild) {
-	// 	log("Skipping build script because `skip_build` option is set");
-	// } else {
-	// 	log("Running the build script…");
-	// 	if (useNpm) {
-	// 		run(`npm run ${buildScriptName} --if-present`, pkgRoot);
-	// 	} else {
-	// 		// TODO: Use `yarn run ${buildScriptName} --if-present` once supported
-	// 		// https://github.com/yarnpkg/yarn/issues/6894
-	// 		const pkgJson = JSON.parse(readFileSync(pkgJsonPath, "utf8"));
-	// 		if (pkgJson.scripts && pkgJson.scripts[buildScriptName]) {
-	// 			run(`yarn run ${buildScriptName}`, pkgRoot);
-	// 		}
-	// 	}
-	// }
-
 	log(`Building${release ? " and releasing" : ""} the Electron app…`);
 	const cmd = "electron-builder";
 	for (let i = 0; i < maxAttempts; i += 1) {
 		try {
 			run(
-				`CI= yarn run ${cmd} -ml --publish always`,
+				`CI= ${cmd} -ml --publish always`,
 				appRoot,
 			);
 			break;
