@@ -34,6 +34,10 @@ inputs:
     description: Whether to run `electron-builder` using the Vue CLI plugin instead of calling the command directly
     required: false
     default: false
+  node_env:
+    description: Node environment to use for building
+    default: "production"
+    required: true
   args:
     description: Other arguments to pass to the `electron-builder` command, e.g. configuration overrides
     required: false
