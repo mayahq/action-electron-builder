@@ -53,6 +53,12 @@ inputs:
     description: "Ensures notarization post signing"
     required: true
     default: "production"
+  appleid:
+    description: "Developer apple id for notarizing app"
+    required: false
+  appleidpass:
+    description: "Developer application password for notarizing app"
+    required: false
 
   # Deprecated
   app_root:
