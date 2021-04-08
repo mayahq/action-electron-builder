@@ -90,7 +90,7 @@ const runAction = () => {
 	if (platform === "mac") {
 		setEnv("CSC_LINK", getInput("mac_certs"));
 		setEnv("CSC_KEY_PASSWORD", getInput("mac_certs_password"));
-		setEnv("APPLEID". getInput("appleid", true));
+		setEnv("APPLEID", getInput("appleid", true));
 		setEnv("APPLEIDPASS", getInput("appleidpass", true));
 	} else if (platform === "windows") {
 		setEnv("CSC_LINK", getInput("windows_certs"));
