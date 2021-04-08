@@ -49,6 +49,10 @@ inputs:
     description: Maximum number of attempts for completing the build and release step
     required: false
     default: "1"
+  publish_type:
+    description: "Ensures notarization post signing"
+    required: true
+    default: "production"
 
   # Deprecated
   app_root:
